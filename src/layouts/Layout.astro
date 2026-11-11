@@ -1,6 +1,9 @@
 ---
+import type { Lang } from '../i18n/ui';
+import { t } from '../i18n/ui';
+
 interface Props {
-  lang: 'es' | 'en';
+  lang: Lang;
   title?: string;
   description?: string;
 }
@@ -8,15 +11,13 @@ interface Props {
 import '../styles/global.css';
 
 const { lang, title = 'Pacha Coffee', description } = Astro.props;
+const desc = description || t(lang, 'meta.description');
 
-const descriptions: Record<string, string> = {
-  es: 'Pacha Coffee: plantines de café de especialidad, asesoramiento agroecológico y comunidad de productores en Misiones, Argentina.',
-  en: 'Pacha Coffee: specialty coffee seedlings, agroecological consulting and producer community in Misiones, Argentina.',
-};
-
-const desc = description || descriptions[lang];
-const altLang = lang === 'es' ? 'en' : 'es';
-const altHref = lang === 'es' ? '/en/' : '/';
+const locales: { code: Lang; href: string }[] = [
+  { code: 'es', href: '/' },
+  { code: 'en', href: '/en/' },
+  { code: 'ja', href: '/ja/' },
+];
 ---
 
 <!doctype html>
@@ -26,8 +27,7 @@ const altHref = lang === 'es' ? '/en/' : '/';
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>{title}</title>
   <meta name="description" content={desc} />
-  <link rel="alternate" hreflang={altLang} href={altHref} />
-  <link rel="alternate" hreflang={lang} href={lang === 'es' ? '/' : '/en/'} />
+  {locales.map(l => <link rel="alternate" hreflang={l.code} href={l.href} />)}
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Caveat+Brush&family=DM+Mono:wght@400;500&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,500&display=swap" />

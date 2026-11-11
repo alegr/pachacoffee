@@ -18,6 +18,13 @@ const { lang } = Astro.props;
       <a href="#sumate">{t(lang, 'nav.sumate')}</a>
     </nav>
     <div class="top-act">
+      <span class="lang-sw">
+        {lang === 'es' ? <strong>ES</strong> : <a href="/">ES</a>}
+        <i class="lang-sep" aria-hidden="true">|</i>
+        {lang === 'en' ? <strong>EN</strong> : <a href="/en/">EN</a>}
+        <i class="lang-sep" aria-hidden="true">|</i>
+        {lang === 'ja' ? <strong>JP</strong> : <a href="/ja/">JP</a>}
+      </span>
       <a class="btn" href="https://wa.me/5493513515559?text=Hola!%20Quiero%20trabajar%20con%20Pacha%20Coffee%20%F0%9F%91%8B" target="_blank" rel="noopener"><WhatsAppIcon /><span>{t(lang, 'nav.escribinos')}</span></a>
       <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mnav" aria-label={t(lang, 'nav.abrirMenu')}><span></span><span></span><span></span></button>
     </div>
