@@ -1,0 +1,78 @@
+---
+import { t } from '../i18n/ui';
+import CoffeePlant from './svg/CoffeePlant.astro';
+import CoffeeBean from './svg/CoffeeBean.astro';
+
+interface Props { lang: string; }
+const { lang } = Astro.props;
+
+const steps = [
+  { i: 1, imgPos: '50% 30%' },
+  { i: 2, imgPos: '50% 50%' },
+  { i: 3, imgPos: '50% 50%' },
+  { i: 4, imgPos: '50% 50%' },
+];
+
+const barPositions = ['0%', '33.333%', '66.667%', '100%'];
+---
+
+<section class="proceso" id="proceso">
+  <div class="proc-pin">
+    <div class="wrap proc-inner">
+      <div class="proc-head">
+        <div>
+          <p class="eyebrow"><i class="eb-shape s2" style="--sc:var(--ambar)" aria-hidden="true"></i><i class="eb-dots" aria-hidden="true"></i>{t(lang, 'process.eyebrow')}</p>
+          <h2 class="h2">{t(lang, 'process.title')}</h2>
+        </div>
+        <p class="lead">{t(lang, 'process.lead')}</p>
+      </div>
+      <div class="pstage">
+        <div class="proc-visual" id="pv" data-stage="1" aria-hidden="true">
+          <div class="stage-art">
+            <svg viewBox="0 0 300 260"><ellipse class="ground" cx="150" cy="236" rx="150" ry="24"/></svg>
+            <div class="mini m1"><CoffeePlant stemClass="" cherriesClass="" /></div>
+            <div class="mini m2"><CoffeePlant stemClass="" cherriesClass="" /></div>
+            <CoffeeBean class="seed" />
+            <div class="proc-plant plant">
+              <CoffeePlant stemClass="stem" cherriesClass="cherries" />
+            </div>
+          </div>
+        </div>
+
+        <div class="pbar" id="pbar">
+          <span class="pfill" id="pfill"></span>
+          {steps.map((step, idx) => (
+            <button
+              class={`pn${idx === 0 ? ' on' : ''}`}
+              type="button"
+              style={`--pos:${barPositions[idx]}`}
+              data-i={idx}
+              aria-label={t(lang, `process.s${step.i}aria`)}
+            >
+              <span>{step.i}</span>
+            </button>
+          ))}
+        </div>
+
+        <div class="psteps" id="psteps">
+          {steps.map((step, idx) => (
+            <div class={`pstep${idx === 0 ? ' on' : ''}`} data-step={step.i}>
+              <span class="n">{t(lang, 'process.stageLabel')} {step.i} {t(lang, 'process.of')} 4</span>
+              <h3>{t(lang, `process.s${step.i}name`)}</h3>
+              <p>{t(lang, `process.s${step.i}desc`)}</p>
+              <span class="dato" set:html={t(lang, `process.s${step.i}data`)} />
+              <figure class="pph">
+                <img
+                  style={`object-position:${step.imgPos}`}
+                  src={`/images/process-${step.i}.jpg`}
+                  alt={t(lang, `process.s${step.i}name`)}
+                  loading="lazy"
+                />
+              </figure>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

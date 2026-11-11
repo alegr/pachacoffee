@@ -1,0 +1,39 @@
+---
+import { t } from '../i18n/ui';
+import CoffeePlant from './svg/CoffeePlant.astro';
+import WhatsAppIcon from './svg/WhatsAppIcon.astro';
+
+interface Props { lang: string; }
+const { lang } = Astro.props;
+---
+
+<section class="hero">
+  <div class="sky" id="sky" aria-hidden="true">
+    <i class="bg b-sol"></i><i class="bg b-nubes"></i><i class="bg b-lluvia"></i><i class="bg b-tormenta"></i><i class="bg b-luna"></i>
+    <div class="stars" id="stars"></div>
+    <div class="sun"><svg viewBox="0 0 300 300"><defs><radialGradient id="sunG" cx="45%" cy="45%" r="60%"><stop offset="0" stop-color="#FFE7A3"/><stop offset=".55" stop-color="#F6B94A"/><stop offset="1" stop-color="#E9962B"/></radialGradient><radialGradient id="haloG"><stop offset=".35" stop-color="#FFD983" stop-opacity=".7"/><stop offset="1" stop-color="#FFD983" stop-opacity="0"/></radialGradient><linearGradient id="cloudG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".7" stop-color="#F3F4F5"/><stop offset="1" stop-color="#DCE1E6"/></linearGradient></defs><circle class="halo" cx="150" cy="150" r="148" fill="url(#haloG)"/><g class="rays" fill="#F6B94A" opacity=".6"><rect x="145" y="8" width="10" height="38" rx="5" transform="rotate(0 150 150)"/><rect x="145" y="24" width="10" height="24" rx="5" transform="rotate(15 150 150)"/><rect x="145" y="8" width="10" height="38" rx="5" transform="rotate(30 150 150)"/><rect x="145" y="24" width="10" height="24" rx="5" transform="rotate(45 150 150)"/><rect x="145" y="8" width="10" height="38" rx="5" transform="rotate(60 150 150)"/><rect x="145" y="24" width="10" height="24" rx="5" transform="rotate(75 150 150)"/><rect x="145" y="8" width="10" height="38" rx="5" transform="rotate(90 150 150)"/><rect x="145" y="24" width="10" height="24" rx="5" transform="rotate(105 150 150)"/><rect x="145" y="8" width="10" height="38" rx="5" transform="rotate(120 150 150)"/><rect x="145" y="24" width="10" height="24" rx="5" transform="rotate(135 150 150)"/><rect x="145" y="8" width="10" height="38" rx="5" transform="rotate(150 150 150)"/><rect x="145" y="24" width="10" height="24" rx="5" transform="rotate(165 150 150)"/><rect x="145" y="8" width="10" height="38" rx="5" transform="rotate(180 150 150)"/><rect x="145" y="24" width="10" height="24" rx="5" transform="rotate(195 150 150)"/><rect x="145" y="8" width="10" height="38" rx="5" transform="rotate(210 150 150)"/><rect x="145" y="24" width="10" height="24" rx="5" transform="rotate(225 150 150)"/><rect x="145" y="8" width="10" height="38" rx="5" transform="rotate(240 150 150)"/><rect x="145" y="24" width="10" height="24" rx="5" transform="rotate(255 150 150)"/><rect x="145" y="8" width="10" height="38" rx="5" transform="rotate(270 150 150)"/><rect x="145" y="24" width="10" height="24" rx="5" transform="rotate(285 150 150)"/><rect x="145" y="8" width="10" height="38" rx="5" transform="rotate(300 150 150)"/><rect x="145" y="24" width="10" height="24" rx="5" transform="rotate(315 150 150)"/><rect x="145" y="8" width="10" height="38" rx="5" transform="rotate(330 150 150)"/><rect x="145" y="24" width="10" height="24" rx="5" transform="rotate(345 150 150)"/></g><circle cx="150" cy="150" r="74" fill="url(#sunG)"/><circle cx="128" cy="126" r="22" fill="#FFF3CC" opacity=".55"/></svg></div>
+    <div class="moon"><svg viewBox="0 0 120 120"><defs><linearGradient id="moonG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF8E6"/><stop offset="1" stop-color="#EFD9A6"/></linearGradient></defs><path d="M74 10 a50 50 0 1 0 36 80 a40 40 0 1 1 -36 -80z" fill="url(#moonG)"/></svg></div>
+    <div class="clouds" id="clouds"></div>
+    <div class="rain" id="rain"></div>
+    <div class="flash"></div>
+    <svg class="bolt" viewBox="0 0 60 110"><path d="M34 2 L8 58 H28 L18 108 L54 42 H34 L46 2 Z" fill="#FFD866" stroke="#F2B636" stroke-width="2" stroke-linejoin="round"/></svg>
+  </div>
+  <div class="wrap">
+    <div>
+      <h1><span class="l"><span>{t(lang, 'hero.sumateALa')}</span></span><span class="l"><span>{t(lang, 'hero.revolucion')}</span></span></h1>
+      <p class="sub">{t(lang, 'hero.delCafe')} <span class="mano">{t(lang, 'hero.argentino')}<svg viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path d="M3 12 C 40 4, 90 18, 130 9 S 185 6, 197 11"/></svg></span></p>
+      <button class="sello" id="sello" type="button" aria-label={t(lang, 'hero.somosPacha')}><span class="w">Somos</span> <span class="w">Pacha</span> <span class="w">Coffee</span></button>
+      <div class="hero-cta">
+        <a class="btn btn--selva" href="https://wa.me/5493513515559?text=Hola!%20Quiero%20trabajar%20con%20Pacha%20Coffee%20%F0%9F%91%8B" target="_blank" rel="noopener"><WhatsAppIcon />{t(lang, 'hero.quieroTrabajar')}</a>
+        <a class="btn btn--ghost" href="#proceso">{t(lang, 'hero.conoceProceso')}</a>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <div class="plant">
+        <CoffeePlant />
+      </div>
+      <div class="hero-note"><svg viewBox="0 0 38 30"><path d="M34 26 C 22 26, 10 20, 8 5 M8 5 l-4 7 M8 5 l6 5"/></svg>{t(lang, 'hero.desdeMisiones')}</div>
+      <p class="wxchip" id="wxchip" hidden><span class="wxi" id="wxIcon" aria-hidden="true"></span><span><span class="lg">{t(lang, 'hero.hoyEn')} </span>{t(lang, 'hero.misiones')}</span><i class="wxsep" aria-hidden="true"></i><b id="wxTemp">--°C</b><i class="wxsep" aria-hidden="true"></i><span id="wxTxt">—</span></p>
+    </div>
+  </div>
+</section>

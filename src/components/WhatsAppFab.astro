@@ -1,0 +1,14 @@
+---
+import { t } from '../i18n/ui';
+import WhatsAppIcon from './svg/WhatsAppIcon.astro';
+
+interface Props { lang: string; }
+const { lang } = Astro.props;
+
+const WA_URL = 'https://wa.me/5493513515559?text=Hola!%20Quiero%20trabajar%20con%20Pacha%20Coffee%20%F0%9F%91%8B';
+---
+
+<a class="fab" href={WA_URL} target="_blank" rel="noopener" aria-label={t(lang, 'fab.label')}>
+  <span class="tip">{t(lang, 'fab.tip')}</span>
+  <WhatsAppIcon />
+</a>

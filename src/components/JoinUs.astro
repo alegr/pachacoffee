@@ -1,0 +1,145 @@
+---
+import { t } from '../i18n/ui';
+import WhatsAppIcon from './svg/WhatsAppIcon.astro';
+
+interface Props { lang: string; }
+const { lang } = Astro.props;
+
+const WA_URL = 'https://wa.me/5493513515559?text=Hola!%20Quiero%20trabajar%20con%20Pacha%20Coffee%20%F0%9F%91%8B';
+
+const panel1Conds = [
+  { key: 'panel1cond1', icon: 'map' },
+  { key: 'panel1cond2', icon: 'income' },
+  { key: 'panel1cond3', icon: 'seedling' },
+  { key: 'panel1cond4', icon: 'leaf' },
+];
+
+const panel2Conds = [
+  { key: 'panel2cond1', icon: 'map' },
+  { key: 'panel2cond2', icon: 'team' },
+  { key: 'panel2cond3', icon: 'leaf' },
+  { key: 'panel2cond4', icon: 'box' },
+];
+
+const pachaItems: string[] = t(lang, 'joinus.panel2pachaItems') as unknown as string[];
+const prodItems: string[] = t(lang, 'joinus.panel2prodItems') as unknown as string[];
+---
+
+<section class="caminos band" id="sumate">
+  <div class="wrap wrap--wide">
+    <div class="neg-head reveal">
+      <p class="eyebrow"><i class="eb-shape s3" style="--sc:var(--oliva)" aria-hidden="true"></i><i class="eb-dots" aria-hidden="true"></i>{t(lang, 'joinus.eyebrow')}</p>
+      <h2 class="neg"><span>{t(lang, 'joinus.title1')}</span><i class="neg-bar" aria-hidden="true"></i><span>{t(lang, 'joinus.title2')}</span></h2>
+    </div>
+
+    <div class="sbox" id="sw" data-on="0">
+      <div class="tabs" role="tablist" aria-label="Tipo de productor">
+        <button role="tab" id="tab-0" aria-selected="true" aria-controls="panel-0">{t(lang, 'joinus.tab1')} <small>{t(lang, 'joinus.tab1sub')}</small></button>
+        <button role="tab" id="tab-1" aria-selected="false" aria-controls="panel-1" tabindex="-1">{t(lang, 'joinus.tab2')} <small>{t(lang, 'joinus.tab2sub')}</small></button>
+      </div>
+      <div class="sheet">
+        <!-- Panel 0: Comunidad -->
+        <div class="panel" id="panel-0" role="tabpanel" aria-labelledby="tab-0">
+          <div class="srule"><span>{t(lang, 'joinus.brochureComunidad')}</span><i></i><span>01</span></div>
+          <div class="scols">
+            <div class="sleft">
+              <span class="trio" aria-hidden="true"><i></i><i></i><i></i></span>
+              <h3>{t(lang, 'joinus.panel1title')}</h3>
+              <p class="para">{t(lang, 'joinus.panel1welcome')}</p>
+              <p class="sdesc">{t(lang, 'joinus.panel1desc')}</p>
+              <a class="btn btn--crema" href={WA_URL} target="_blank" rel="noopener">
+                <WhatsAppIcon />
+                <span class="lg">{t(lang, 'joinus.panel1ctaLong')}</span>
+                <span class="sh">{t(lang, 'joinus.panel1ctaShort')}</span>
+              </a>
+            </div>
+            <ul class="conds">
+              <li>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z"/><path d="M9 4v14M15 6v14"/></svg>
+                <span><b>{t(lang, 'joinus.panel1cond1title')}</b>{t(lang, 'joinus.panel1cond1desc')}</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="14" r="6"/><circle cx="16" cy="9" r="5"/><path d="M9 11.5v5"/></svg>
+                <span><b>{t(lang, 'joinus.panel1cond2title')}</b>{t(lang, 'joinus.panel1cond2desc')}</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V11"/><path d="M12 13c-4 0-6-3-6-6 4 0 6 3 6 6z"/><path d="M12 11c0-4 2-7 6-7 0 4-2 7-6 7z"/><path d="M7 21h10"/></svg>
+                <span><b>{t(lang, 'joinus.panel1cond3title')}</b>{t(lang, 'joinus.panel1cond3desc')}</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19C5 10 10 5 20 4c-1 10-6 15-15 15z"/><path d="M5 19l8-8"/></svg>
+                <span><b>{t(lang, 'joinus.panel1cond4title')}</b>{t(lang, 'joinus.panel1cond4desc')}</span>
+              </li>
+            </ul>
+          </div>
+          <div class="kpis kpis--row stagger">
+            <div class="kpi k1"><span class="num" data-count="15">{t(lang, 'joinus.panel1kpi1num')}<small>{t(lang, 'joinus.panel1kpi1unit')}</small></span><span class="cap">{t(lang, 'joinus.panel1kpi1cap')}</span></div>
+            <div class="kpi k2"><span class="num" data-count="15">{t(lang, 'joinus.panel1kpi2num')}<small>{t(lang, 'joinus.panel1kpi2unit')}</small></span><span class="cap">{t(lang, 'joinus.panel1kpi2cap')}</span></div>
+            <div class="kpi k3"><span class="num">{t(lang, 'joinus.panel1kpi3num')}<small>{t(lang, 'joinus.panel1kpi3unit')}</small></span><span class="cap">{t(lang, 'joinus.panel1kpi3cap')}</span></div>
+            <div class="kpi k4"><span class="num" data-count="3">{t(lang, 'joinus.panel1kpi4num')}<small>.<sup>{t(lang, 'joinus.panel1kpi4unit')}</sup></small></span><span class="cap">{t(lang, 'joinus.panel1kpi4cap')}</span></div>
+          </div>
+          <div class="srule srule--end"><i></i><span>{t(lang, 'joinus.sruleEnd')}</span></div>
+        </div>
+
+        <!-- Panel 1: Productores -->
+        <div class="panel" id="panel-1" role="tabpanel" aria-labelledby="tab-1" hidden>
+          <div class="srule"><span>{t(lang, 'joinus.brochureProductores')}</span><i></i><span>02</span></div>
+          <div class="scols">
+            <div class="sleft">
+              <span class="trio" aria-hidden="true"><i></i><i></i><i></i></span>
+              <h3>{t(lang, 'joinus.panel2title')}</h3>
+              <p class="para">{t(lang, 'joinus.panel2subtitle')}</p>
+              <p class="sdesc">{t(lang, 'joinus.panel2desc')}</p>
+              <a class="btn btn--crema" href={WA_URL} target="_blank" rel="noopener">
+                <WhatsAppIcon />
+                <span class="lg">{t(lang, 'joinus.panel2ctaLong')}</span>
+                <span class="sh">{t(lang, 'joinus.panel2ctaShort')}</span>
+              </a>
+            </div>
+            <ul class="conds">
+              <li>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z"/><path d="M9 4v14M15 6v14"/></svg>
+                <span><b>{t(lang, 'joinus.panel2cond1title')}</b>{t(lang, 'joinus.panel2cond1desc')}</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="8" r="3"/><circle cx="16.5" cy="9" r="2.5"/><path d="M2.5 20c0-3.5 2.5-6 5.5-6s5.5 2.5 5.5 6"/><path d="M14 14.5c3.5-.5 7 1.5 7 5.5"/></svg>
+                <span><b>{t(lang, 'joinus.panel2cond2title')}</b>{t(lang, 'joinus.panel2cond2desc')}</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19C5 10 10 5 20 4c-1 10-6 15-15 15z"/><path d="M5 19l8-8"/></svg>
+                <span><b>{t(lang, 'joinus.panel2cond3title')}</b>{t(lang, 'joinus.panel2cond3desc')}</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 7h12l1 14H5z"/><path d="M6 7l2-3h8l2 3"/><path d="M9.5 14l2 2 3.5-4"/></svg>
+                <span><b>{t(lang, 'joinus.panel2cond4title')}</b>{t(lang, 'joinus.panel2cond4desc')}</span>
+              </li>
+            </ul>
+          </div>
+          <div class="kpis kpis--row kpis--prod stagger">
+            <div class="kpi k1"><span class="num" data-count="300000">{t(lang, 'joinus.panel2kpi1num')}</span><span class="cap">{t(lang, 'joinus.panel2kpi1cap')}</span></div>
+            <div class="kpi k2"><span class="num" data-count="15">{t(lang, 'joinus.panel2kpi2num')}<small>{t(lang, 'joinus.panel2kpi2unit')}</small></span><span class="cap">{t(lang, 'joinus.panel2kpi2cap')}</span></div>
+            <div class="split65" id="split65">
+              <h4>{t(lang, 'joinus.panel2splitTitle')}</h4>
+              <div class="bar">
+                <span class="p"><span class="lg">Pacha 65%</span><span class="sh">65%</span></span>
+                <span class="q"><span class="lg">Productor 35%</span><span class="sh">35%</span></span>
+              </div>
+              <div class="cols">
+                <div>
+                  <b>{t(lang, 'joinus.panel2pachaTitle')}</b>
+                  <ul>{pachaItems.map((item: string) => <li>{item}</li>)}</ul>
+                </div>
+                <div>
+                  <b>{t(lang, 'joinus.panel2prodTitle')}</b>
+                  <ul>{prodItems.map((item: string) => <li>{item}</li>)}</ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="srule srule--end"><i></i><span>{t(lang, 'joinus.sruleEnd')}</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

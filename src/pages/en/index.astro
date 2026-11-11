@@ -1,0 +1,38 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Hero from '../../components/Hero.astro';
+import About from '../../components/About.astro';
+import History from '../../components/History.astro';
+import WhyNow from '../../components/WhyNow.astro';
+import Process from '../../components/Process.astro';
+import Varieties from '../../components/Varieties.astro';
+import JoinUs from '../../components/JoinUs.astro';
+import Contact from '../../components/Contact.astro';
+import Footer from '../../components/Footer.astro';
+import WhatsAppFab from '../../components/WhatsAppFab.astro';
+
+const lang = 'en';
+---
+
+<Layout lang={lang}>
+  <Header lang={lang} />
+  <main id="inicio">
+    <Hero lang={lang} />
+    <About lang={lang} />
+    <History lang={lang} />
+    <WhyNow lang={lang} />
+    <Process lang={lang} />
+    <Varieties lang={lang} />
+    <JoinUs lang={lang} />
+    <Contact lang={lang} />
+  </main>
+  <Footer lang={lang} />
+  <WhatsAppFab lang={lang} />
+
+  <script src="../../scripts/animations.ts"></script>
+  <script src="../../scripts/weather.ts"></script>
+  <script src="../../scripts/process.ts"></script>
+  <script src="../../scripts/varieties.ts"></script>
+  <script src="../../scripts/interactions.ts"></script>
+</Layout>

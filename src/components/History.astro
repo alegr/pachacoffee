@@ -1,0 +1,44 @@
+---
+import { t } from '../i18n/ui';
+
+interface Props { lang: string; }
+const { lang } = Astro.props;
+---
+
+<section class="hist" id="historia">
+  <div class="hist-pin">
+    <div class="wrap hist-head">
+      <div class="reveal">
+        <p class="eyebrow"><i class="eb-shape s3" style="--sc:#F2D9AE" aria-hidden="true"></i><i class="eb-dots" aria-hidden="true"></i>{t(lang, 'history.eyebrow')}</p>
+        <h2 class="h2" style="margin-top:.35em">{t(lang, 'history.title')}</h2>
+      </div>
+      <p class="lead reveal">{t(lang, 'history.lead')}</p>
+    </div>
+    <div class="tl2" id="tl2">
+      <div class="tl2-track" aria-hidden="true"><span class="tl2-fill" id="tlFill"></span></div>
+      <div class="wrap tl2-row">
+        <div class="hito2" data-from={t(lang, 'history.t1from')} data-to={t(lang, 'history.t1to')}>
+          <span class="dot" aria-hidden="true"></span>
+          <div class="yr"><span class="a">{t(lang, 'history.t1from')}</span>&ndash;<span class="b">{t(lang, 'history.t1to')}</span></div>
+          <div class="lugar">{t(lang, 'history.t1place')}</div>
+          <p>{t(lang, 'history.t1desc')}</p>
+          <figure class="hph"><img src="/images/history-1.jpg" alt={t(lang, 'history.t1place')} loading="lazy"></figure>
+        </div>
+        <div class="hito2" data-from={t(lang, 'history.t2from')} data-to={t(lang, 'history.t2to')}>
+          <span class="dot" aria-hidden="true"></span>
+          <div class="yr"><span class="a">{t(lang, 'history.t2from')}</span>&ndash;<span class="b">{t(lang, 'history.t2to')}</span></div>
+          <div class="lugar">{t(lang, 'history.t2place')}</div>
+          <p>{t(lang, 'history.t2desc')}</p>
+          <figure class="hph"><img src="/images/history-2.jpg" alt={t(lang, 'history.t2place')} loading="lazy"></figure>
+        </div>
+        <div class="hito2 hoy">
+          <span class="dot" aria-hidden="true"></span>
+          <div class="yr">{t(lang, 'history.t3to')}</div>
+          <div class="lugar">{t(lang, 'history.t3place')}</div>
+          <p>{t(lang, 'history.t3desc')}</p>
+          <figure class="hph"><img src="/images/history-3.jpg" alt={t(lang, 'history.t3place')} loading="lazy"></figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

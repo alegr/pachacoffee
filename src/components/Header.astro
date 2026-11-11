@@ -1,0 +1,28 @@
+---
+import { t } from '../i18n/ui';
+import Logo from './svg/Logo.astro';
+import WhatsAppIcon from './svg/WhatsAppIcon.astro';
+
+interface Props { lang: string; }
+const { lang } = Astro.props;
+---
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a href="#inicio" aria-label="Pacha Coffee, inicio"><Logo class="logo" /></a>
+    <nav class="nav" aria-label="Secciones">
+      <a href="#nosotros">{t(lang, 'nav.nosotros')}</a>
+      <a href="#historia">{t(lang, 'nav.historia')}</a>
+      <a href="#proceso">{t(lang, 'nav.proceso')}</a>
+      <a href="#variedades">{t(lang, 'nav.variedades')}</a>
+      <a href="#sumate">{t(lang, 'nav.sumate')}</a>
+    </nav>
+    <div class="top-act">
+      <a class="btn" href="https://wa.me/5493513515559?text=Hola!%20Quiero%20trabajar%20con%20Pacha%20Coffee%20%F0%9F%91%8B" target="_blank" rel="noopener"><WhatsAppIcon /><span>{t(lang, 'nav.escribinos')}</span></a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mnav" aria-label={t(lang, 'nav.abrirMenu')}><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <nav class="mnav" id="mnav" aria-label="Secciones" hidden>
+    <a href="#nosotros">{t(lang, 'nav.nosotros')}</a><a href="#historia">{t(lang, 'nav.historia')}</a><a href="#proceso">{t(lang, 'nav.proceso')}</a><a href="#variedades">{t(lang, 'nav.variedades')}</a><a href="#sumate">{t(lang, 'nav.sumate')}</a><a href="#contacto">{t(lang, 'nav.contacto')}</a>
+  </nav>
+</header>

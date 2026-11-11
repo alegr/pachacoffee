@@ -1,0 +1,43 @@
+---
+import { t } from '../i18n/ui';
+import CoffeePlant from './svg/CoffeePlant.astro';
+import WhatsAppIcon from './svg/WhatsAppIcon.astro';
+
+interface Props { lang: string; }
+const { lang } = Astro.props;
+
+const WA_URL = 'https://wa.me/5493513515559?text=Hola!%20Quiero%20trabajar%20con%20Pacha%20Coffee%20%F0%9F%91%8B';
+---
+
+<section class="final band" id="contacto">
+  <div class="wrap wrap--wide final-grid">
+    <div class="final-copy">
+      <p class="eyebrow"><i class="eb-shape s2" style="--sc:var(--tostado)" aria-hidden="true"></i><i class="eb-dots" aria-hidden="true"></i>{t(lang, 'contact.eyebrow')}</p>
+      <h2 set:html={t(lang, 'contact.title')} />
+      <p class="final-sub">{t(lang, 'contact.desc')}</p>
+      <span class="thanks">{t(lang, 'contact.thanks')}</span>
+    </div>
+    <svg class="arrow" viewBox="0 0 220 140" aria-hidden="true"><path class="a1" d="M10 30 C 60 0, 110 10, 120 52 S 150 128, 204 96"/><path class="a2" d="M204 96 l-20 -2 M204 96 l-8 18"/></svg>
+    <div class="tilt" id="tilt">
+      <div class="card" id="waCard">
+        <span class="glare" aria-hidden="true"></span>
+        <div class="chead">
+          <span class="iso" aria-hidden="true">
+            <CoffeePlant />
+          </span>
+          <div>
+            <b>{t(lang, 'contact.cardName')}</b>
+            <small><i class="dot"></i><span class="lg">{t(lang, 'contact.cardWhatsapp')}</span><span class="sh">{t(lang, 'contact.cardWhatsappShort')}</span></small>
+          </div>
+        </div>
+        <div class="msg">{t(lang, 'contact.cardMsg')} <small>{t(lang, 'contact.cardMsgSub')}</small></div>
+        <div class="num"><span id="tel">{t(lang, 'contact.phone')}</span><button class="copy" id="copyBtn" type="button">{t(lang, 'contact.copyNumber')}</button></div>
+        <a class="btn btn--selva" href={WA_URL} target="_blank" rel="noopener">
+          <WhatsAppIcon />
+          <span class="lg">{t(lang, 'contact.ctaLong')}</span>
+          <span class="sh">{t(lang, 'contact.ctaShort')}</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

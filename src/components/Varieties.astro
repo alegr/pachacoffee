@@ -1,0 +1,56 @@
+---
+import { t } from '../i18n/ui';
+
+interface Props { lang: string; }
+const { lang } = Astro.props;
+
+const varieties = [
+  { id: 0, key: 'v1', color: '#B8442F' },
+  { id: 1, key: 'v2', color: '#D9788A' },
+  { id: 2, key: 'v3', color: '#7C211E' },
+  { id: 3, key: 'v4', color: '#A8261F' },
+  { id: 4, key: 'v5', color: '#995905' },
+  { id: 5, key: 'v6', color: '#5A1418' },
+  { id: 6, key: 'v7', color: '#C9A23A' },
+  { id: 7, key: 'v8', color: '#4C1012' },
+];
+---
+
+<section class="variedades band" id="variedades">
+  <div class="wrap wrap--wide">
+    <div class="split">
+      <div class="reveal">
+        <p class="eyebrow"><i class="eb-shape s1" style="--sc:var(--tostado)" aria-hidden="true"></i><i class="eb-dots" aria-hidden="true"></i>{t(lang, 'varieties.eyebrow')}</p>
+        <h2 class="h2" style="margin-top:.35em">{t(lang, 'varieties.title')}</h2>
+      </div>
+      <div class="reveal">
+        <p class="lead">{t(lang, 'varieties.lead')}</p>
+        <p class="quote">{t(lang, 'varieties.quote')}</p>
+      </div>
+    </div>
+    <div class="vgrid stagger" id="vgrid">
+      {varieties.map((v) => (
+        <button class="vcard" type="button" id={`var-${v.id}`} aria-pressed="false" aria-label={`${t(lang, `varieties.${v.key}name`)}: ${t(lang, 'varieties.seeProfile')}`}>
+          <span class="in">
+            <span class="face front">
+              <span class="berry" style={`--c:${v.color}`}><i></i><i></i></span>
+              <span>
+                <span class="nm">{t(lang, `varieties.${v.key}name`)}</span>
+                <span class="hint">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3"/><path d="M18 3v4h-4M6 21v-4h4"/></svg>
+                  {t(lang, 'varieties.seeProfile')}
+                </span>
+              </span>
+            </span>
+            <span class="face back">
+              <span class="nm">{t(lang, `varieties.${v.key}name`)}</span>
+              <span class="og">{t(lang, `varieties.${v.key}origin`)}</span>
+              <p>{t(lang, `varieties.${v.key}desc`)}</p>
+            </span>
+          </span>
+        </button>
+      ))}
+    </div>
+    <div class="vcursor" id="vcursor" aria-hidden="true">{t(lang, 'varieties.clickToSee')}</div>
+  </div>
+</section>
